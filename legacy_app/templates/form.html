@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <title>InvoiceTrack v2.3</title>
+  <style>
+    body { font-family: "Times New Roman", serif; background: #d4d0c8; padding: 20px; }
+    table { border: 2px outset #fff; padding: 12px; background: #ece9d8; }
+    td { padding: 6px; }
+    input, select { font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h2>InvoiceTrack v2.3 - New Invoice Entry</h2>
+  <form method="post" action="/submit">
+    <table>
+      <tr><td>Customer:</td>
+          <td><select id="{{ ids.customer }}" name="customer">
+            {% for c in customers %}<option>{{ c }}</option>{% endfor %}
+          </select></td></tr>
+      <tr><td>Invoice #:</td>
+          <td><input id="{{ ids.invoice }}" name="invoice_number"></td></tr>
+      <tr><td>Amount (USD):</td>
+          <td><input id="{{ ids.amount }}" name="amount"></td></tr>
+      <tr><td></td><td><button type="submit">{{ submit_label }}</button></td></tr>
+    </table>
+  </form>
+</body>
+</html>
